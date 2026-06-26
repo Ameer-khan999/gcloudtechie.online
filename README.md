@@ -5,5 +5,4 @@ Welcome to the central repository for **gcloudtechie.online**. This space is ded
 
 ### 🛠️ Core Focus Areas:
 * **Google Cloud (GCP) DevOps:** Architecting scalable, secure, and cloud-native environments.
-* **AWS DevOps:** Implementing robust CI/CD, Infrastructure as Code (IaC), and containerization.
 * **AIOps:** Leveraging AI/ML to enhance observability, automate incident response, and build self-healing infrastructure.
