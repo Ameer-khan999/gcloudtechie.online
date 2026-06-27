@@ -9,6 +9,15 @@ resource "aws_vpc" "main" {
     )
 }
 
+resource "aws_internet_gateway" "main" {
+  vpc_id = aws_vpc.main.id
+
+  tags = merge(
+    var.igw_tags,
+    local.common_tags
+  )
+}
+
 resource "aws_subnet" "public" {
     count = length(var.public_subnet_cidrs)
     vpc_id = aws_vpc.main.id
@@ -73,7 +82,7 @@ resource "aws_route_table_association" "name" {
 
 resource "aws_route_table_association" "private" {
     count = length(var.private_subnet_cidrs)
-    subnet_id = aws_subnet.public.id
+    subnet_id = aws_subnet.public[0].id
     route_table_id = aws_subnet.private.id
 }
 
@@ -103,7 +112,7 @@ resource "aws_nat_gateway" "main" {
 
 resource "aws_route" "public" {
   route_table_id = aws_route_table.public.id
-  destination_cidr_block = ["0.0.0.0/0"]
+  destination_cidr_block = "0.0.0.0/0"
   gateway_id = aws_internet_gateway.main.id
 }
 

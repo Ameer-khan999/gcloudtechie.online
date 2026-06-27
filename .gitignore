@@ -50,3 +50,9 @@ datasets/
 Thumbs.db
 desktop.ini
 $RECYCLE.BIN/
+
+# ==========================================
+#OTHER
+# ==========================================
+*.docx
+*.gitkeep
