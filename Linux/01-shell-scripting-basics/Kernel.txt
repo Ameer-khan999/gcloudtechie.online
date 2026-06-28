@@ -1,0 +1,16 @@
+-> Kernel is nothing but Interface between Software and Hardware. 
+
+		User     - User who holds credentials or ability to access the application.
+		 |
+		\ /
+	     Application -  Application and Shell together called as Software that user can use on daily basis.
+		 |
+		\ /
+	       Shell     - Shell is nothing but GUI, Shell or C Shell. Shell and Kernel together is called OS. such as Windows, Linux, Mac OS etc..
+		 |
+		\ /
+	       Kernel    - It is like a program that keeps running and takes commands from shell and passes to hardware for processing
+		 |
+		\ /
+	      Hardware
+       ( CPU, Memory, Hard Disk)
