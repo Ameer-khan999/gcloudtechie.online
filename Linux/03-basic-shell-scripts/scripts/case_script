@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Author : Ameer Khan
+# Created Date : 28 June, 2026
+# Description : This is to practise case statements
+
+#Defining variables
+
+available_cash_savings=10000
+available_cash_current=500000
+echo
+echo " Choose account type"
+echo " Savings Press 1"
+echo " Current Press 2"
+echo " Exit Press 3"
+
+read account_type
+case $account_type in
+  1) echo " Balance is: $available_cash_savings";;
+  2) echo " Balance is: $available_cash_current";;
+  3) echo " Thank you!! Visit again. ";;
+  *) echo " Invalid option! Please press 1, 2, or 3. ";;
+esac
