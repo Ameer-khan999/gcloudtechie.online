@@ -6,7 +6,7 @@
 # Date Modified : 28 June, 2026
 
 echo
-echo " Program starts from here..."
+echo " Program starts..."
 echo
 top | head -10
 echo
