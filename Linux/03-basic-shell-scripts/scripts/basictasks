@@ -1,0 +1,21 @@
+
+#!/usr/bin/env bash
+# Author : Ameer Khan
+# Date Created : 28 June, 2026
+# Description : This script is run basic tasks
+# Date Modified : 28 June, 2026
+
+echo
+echo " Program start..."
+echo
+pwd
+echo
+whoami
+echo
+ls
+echo
+date
+echo
+cal
+touch a b c
+echo End of Program
