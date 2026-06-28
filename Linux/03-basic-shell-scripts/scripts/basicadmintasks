@@ -18,3 +18,5 @@ uptime
 echo
 #iostat
 echo End of Program
+
+echo "This is a test email sent from my AWS cron job!" | mail -s "Cron Job Alert" ameerk***@gmail.com
