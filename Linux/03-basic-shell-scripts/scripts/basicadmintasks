@@ -1,0 +1,22 @@
+
+#!/usr/bin/env bash
+# Author : Ameer Khan
+# Date Created : 28 June, 2026
+# Description : This script is to run basic admin tasks
+# Date Modified : 28 June, 2026
+
+echo
+echo " Program starts..."
+echo
+top | head -10
+echo
+df -h
+echo
+free -m
+echo
+uptime
+echo
+#iostat
+echo End of Program
+
+echo "This is a test email sent from my AWS cron job!" | mail -s "Cron Job Alert" ameerk***@gmail.com

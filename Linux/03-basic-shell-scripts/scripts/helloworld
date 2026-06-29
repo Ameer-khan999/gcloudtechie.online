@@ -1,0 +1,9 @@
+
+#!/usr/bin/env bash
+# Author : Ameer Khan
+# Date Created : 28 June, 2026
+# Description : This script is to print Hello World on screen
+# Date Modified : 28 June, 2026
+
+
+echo " Hello World! :) "
