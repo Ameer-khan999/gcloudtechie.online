@@ -8,21 +8,23 @@ RUN dnf install nginx -y && \
 
 LABEL Author="Ameer Khan"
 
-# 2. Fixed variable names (no hyphens)
+# Giving Aruguments
 ARG course="docker-tutorials for NOOBS"
+
+#Assigning aruguments ENV
 ENV course_name=${course}
 
-# 3. Copy files (Assumes index.html and sample-1.tar are in your build context)
-COPY index.html /usr/share/nginx/html/
+# Copying html file
+COPY index.html /usr/share/nginx/html
 
-# 4. Fixed GitHub link to pull the RAW file, not the webpage UI
 ADD https://raw.githubusercontent.com/Ameer-khan999/gcloudtechie.online/main/Docker/docker.md /tmp/
 ADD sample-1.tar /tmp/
 
+#someone can use this image as their base image but they need to keep files in src folder
 ONBUILD COPY src/ /usr/share/nginx/html/
 
+# This is just let to know others that nginx is runnung on port 80
 EXPOSE 80
 
-# 5. Kept Nginx running as root so it can bind to Port 80 seamlessly
-# (Removed ENTRYPOINT ping so Nginx can actually boot)
+# to enable and strat nginx service
 CMD ["nginx", "-g", "daemon off;"]
