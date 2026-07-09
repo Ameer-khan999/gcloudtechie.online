@@ -26,5 +26,5 @@ ONBUILD COPY src/ /usr/share/nginx/html/
 # This is just let to know others that nginx is runnung on port 80
 EXPOSE 80
 
-# to enable and strat nginx service
+# to enable and start nginx service
 CMD ["nginx", "-g", "daemon off;"]
