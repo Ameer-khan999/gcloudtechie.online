@@ -1,0 +1,25 @@
+docker login -u username
+docker tag copy:1.0 gcloudtechie/copy:1.0
+docker push gcloudtechie/copy:1.0
+
+
+ 226  25/07/26 08:14:28 docker login
+  227  25/07/26 08:15:10 docker login -u gcloudtechie
+  228  25/07/26 08:15:35 docker push copy:2.0
+  229  25/07/26 08:16:12 cd /home/ec2-user/
+  230  25/07/26 08:16:14 ls
+  231  25/07/26 08:17:46 docker images
+  232  25/07/26 08:18:38 docker tag copy:2.0 gcloudtechie/copy:1.0
+  233  25/07/26 08:19:14 docker tag copy:3.0 gcloudtechie/copy:2.0
+  234  25/07/26 08:19:30 docker tag copy:4.0 gcloudtechie/copy:3.0
+  235  25/07/26 08:19:49 docker push gcloudtechie/copy:1.0
+  236  25/07/26 08:20:00 docker push gcloudtechie/copy:2.0
+  237  25/07/26 08:20:09 docker push gcloudtechie/copy:3.0
+  238  25/07/26 08:20:25 cd gcloudtechie.online/
+  239  25/07/26 08:20:28 cd Docker/
+  240  25/07/26 08:20:30 ls -ltr
+  241  25/07/26 08:20:51 vim docker-hub-command
+  242  25/07/26 08:21:55 cat docker-hub-command
+  243  25/07/26 08:21:59 history
+  244  25/07/26 08:22:10 history | tail -10
+  245  25/07/26 08:22:20 history | tail -20
