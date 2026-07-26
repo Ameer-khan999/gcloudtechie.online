@@ -1,0 +1,35 @@
+# --- Stage 1: Build & Dependencies ---
+FROM node:20-alpine AS builder
+WORKDIR /app
+
+# 1. Copy package files first for layer caching
+COPY package.json ./
+
+# 2. Install all dependencies deterministically
+RUN npm install
+
+# 3. Copy application source code
+COPY . .
+
+# 4. Remove dev dependencies to keep final image small
+RUN npm prune --production
+
+
+# --- Stage 2: Runtime ---
+FROM node:20-alpine
+WORKDIR /app
+
+# Create non-root user
+RUN addgroup -S roboshop && adduser -S -G roboshop roboshop
+
+# Copy build output and set permissions in a single layer
+COPY --chown=roboshop:roboshop --from=builder /app /app
+
+USER roboshop
+EXPOSE 8080
+
+# ENTRYPOINT specifies the binary executable
+ENTRYPOINT ["node"]
+
+# CMD provides the default parameter passed to ENTRYPOINT
+CMD ["server.js"]
