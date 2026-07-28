@@ -1,7 +1,17 @@
-dnf -y install dnf-plugins-core
-dnf config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
-dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+sudo dnf -y install dnf-plugins-core
+sudo dnf config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
+sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
-systemctl start docker
-systemctl enable docker
-usermod -aG docker ec2-user
+sudo systemctl enable --now docker
+sudo usermod -aG docker ec2-user
+sudo usermod -aG wheel ec2-user
+systemctl status docker
+
+# 1. Expand physical partition
+sudo growpart /dev/nvme0n1 4
+
+# 2. Tell LVM about the expanded partition
+sudo pvresize /dev/nvme0n1p4
+
+# 3. Grow /var and its filesystem in one step
+sudo lvextend -r -l +100%FREE /dev/RootVG/varVol
