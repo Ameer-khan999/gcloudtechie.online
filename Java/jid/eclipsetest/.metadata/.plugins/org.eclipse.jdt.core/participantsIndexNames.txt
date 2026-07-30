@@ -1,0 +1,5 @@
+INDEX VERSION 1.131
+C:\jid\eclipsetest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3090903638.index
+\XeroxJspDemo\src
+C:\jid\eclipsetest\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1425762617.index
+\June_Project\src

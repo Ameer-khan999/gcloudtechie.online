@@ -1,0 +1,17 @@
+class Currency {
+	static void method1(String country,double money) {
+		String[] countries={"India","Russia","Saudi","Turkey"};
+		double[] rate={67.0,46.0,6.0,59.0};
+		for(int i=0;i<=countries.length-1;i++) {
+			if (country == countries[i]) {
+				System.out.println(country  + " currency is: " + rate[i]);
+				System.out.println(rate[i]*money);
+			}
+		}
+	}
+	public static void main(String[] args) {
+		Currency c=new Currency();
+		c.method1("India",200.0);
+	}
+}
+		

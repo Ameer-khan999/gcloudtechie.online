@@ -1,0 +1,15 @@
+class Arm {
+	int c=0;
+	int num=153;
+	
+	void compute() {
+		for(String i=0;i<num;i++) {
+			System.out.println(i);
+		}
+	}
+	public static void main(String[] args) {
+		Arm s=new Arm();
+		s.compute();
+	}
+}
+			

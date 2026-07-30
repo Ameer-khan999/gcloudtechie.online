@@ -1,0 +1,52 @@
+import java.math.BigDecimal;
+class BasicDemo {
+	static void print() {
+		System.out.println("\n\nInside print...");
+        System.out.println("Hello World!"); //Advance cursor to beginning of next line
+		System.out.println();               // prints empty line
+		System.out.print("Hello World !!"); //Cursor stayed after the printed string
+		System.out.println("Hello,");
+		System.out.println(" ");           // prints a space
+		System.out.println("\tWorld!");
+	}
+	
+	static void primitives() {
+		System.out.println("\n\nInside primitives...");
+		long intHex = 0x0041; // 16 power 0 * 1 + 16 power 1 * 4 = 65
+		System.out.println("intHex: "+intHex);
+		
+		//java 7 onwards
+		int intBinary = 0b0100_0001;
+		System.out.println("intBinary: "+intBinary);
+		
+		int intOctal = 0101; // 8 power 0 * 1 + 8 power 1 * 0 + 8 power 2 * 1 + 8 power 3 * 0 = 65
+		System.out.println("intOctal: "+intOctal);
+	}
+	public static void main(String[] args) {
+		//print();
+		//primitives();
+		System.out.println(1-0.9);
+		System.out.println(0.1+0.2);
+		
+		//0.1 ~ 0.001100110011001100011011001101001010101001
+		
+		double price=1000d;
+		double discountpercent=0.9;
+		double discountamount = price * discountpercent;
+		System.out.println("Exact amount: " + (price - discountamount));
+        System.out.println("pitfall in amount: " + price * (1 - discountpercent));
+		
+		//item 48:Avoid float and double if exact answers are required...
+
+        BigDecimal first = new BigDecimal("0.1");	//BigDecimal is itself a class in java library of math package
+        BigDecimal second = new BigDecimal("0.2");
+        System.out.println("Use BigDecimal instead of float and double in case of money matter: " + first.add(second));		
+
+
+
+	}
+}
+		
+		
+
+		

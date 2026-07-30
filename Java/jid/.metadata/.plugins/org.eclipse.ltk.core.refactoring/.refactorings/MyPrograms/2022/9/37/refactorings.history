@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;AmeerClass.java&apos; to &apos;NestedClasses/src/com.tcs.nestedclasses&apos;&#x0D;&#x0A;- Original project: &apos;MyPrograms&apos;&#x0D;&#x0A;- Destination element: &apos;NestedClasses/src/com.tcs.nestedclasses&apos;&#x0D;&#x0A;- Original element: &apos;myprograms1.AmeerClass.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="=NestedClasses/src&lt;com.tcs.nestedclasses" element1="/src&lt;myprograms1{AmeerClass.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1662639075844" units="1" version="1.0"/>
+</session>

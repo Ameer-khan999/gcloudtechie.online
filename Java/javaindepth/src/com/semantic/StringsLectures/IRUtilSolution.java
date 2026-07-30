@@ -1,0 +1,103 @@
+/*Implement the solution in code, compile & run. You can then copy the code in the Submission area. Once submitted, you can click Next to view 
+the Instructor Example, where the solution will be shown for you to cross-check.
+
+Questions for this assignment
+In this assignment, you will an implement a simple measure called "term frequency", which is used in Information Retrieval (IR) field. 
+IR is the field on which search engines like Google are based on. Below first let's discuss a bit about term frequency and then we will get into 
+implementation details.
+
+Background on Term Frequency:
+
+Given a search query, search engines like Google retrieve the most relevant Web pages and rank them based on a relevancy score, 
+i.e., Web pages at the top of search results are more relevant to user query and have a higher relevancy score compared to the ones ranked lower. 
+For this to happen, search engines store Web pages in a special data structure called Inverted Index. The process of building an inverted index is 
+referred to as indexing. In an inverted index, every term (word) that appears in a Web page will be given certain weight depending on how relevant 
+that term is to that Web page. For example, a term like Java might appear in two Web pages titled "Introduction to Java" and "Python: A High-level 
+Overview". In an inverted index, Java might be given a high weight of say 0.9 for first Web page as it is all about Java, i.e., Java appears several 
+times in the Web page. Similarly, it might get a low weight of 0.1 for second Web page as it is about Python and Java might have appeared very few
+times. One simple measure to come up with weights like 0.9 & 0.1 is referred to as tf-idf, which stands for term frequency-inverse document frequency. 
+This measure involves two parts: tf & idf and in this assignment we are concerned with only tf. Given a term and a document (Web page), 
+term frequency can be computed as follows:
+
+tf(term, document) = number of times term appears in document / total number of words in document
+
+Implementation Details:
+
+Since term frequency measure comes from IR field, lets name our class as IRUtil indicating that it is a utility class that provides methods for 
+computing IR measures like tf. Below is the class and it includes two methods. The method termFrequency() will take a term and document and 
+returns the term frequency weight. This method first invokes getFrequencyCount, which returns the number of times term appears in the document, 
+i.e., the numerator in the above formula. The pseudocode (informal steps) to implement the logic is provided in the methods and you would implement 
+the corresponding code.
+
+public class IRUtil {
+
+    public static int getFrequencyCount(String term, String doc) {
+
+        Step 1: Convert both term & doc into lower-case
+
+        Step 2: Initialize variable frequencyCount to 0
+
+        Step 3: Initialize variable index with the index position of term in doc. Hint: Use indexOf() method
+
+        Step 4: If index >= 0 (i.e.., term appears in doc), then go to next step. Else go to last step.
+
+        Step 5: Increment frequencyCount
+
+        Step 6: Re-compute doc with the string appearing after term till end of doc. Hint: You can use substring() & length() methods
+
+        Step 7: Re-compute index with index position of term in the re-computed doc. Go to step 4 to continue processing.
+
+        Step 8: Return frequencyCount
+
+    }
+
+    public static double termFrequency(String term, String doc) {
+
+        Step 1: int frequencyCount = getFrequencyCount(term, doc);
+
+        Step 2: Create variable totalTermCount to hold the total number of terms appearing in doc. Hint: You can use split() with white-space " " as delimiter
+
+        Step 3: return frequencyCount / totalTermCount. This is the tf formula.
+
+    }
+
+}*/
+
+public class IRUtilSolution {	
+
+	public static int getFrequencyCount(String term, String doc) {
+		term = term.toLowerCase(); // step 1
+		doc = doc.toLowerCase(); // step 1
+		
+		int frequencyCount = 0; // step 2
+		
+		int index = doc.indexOf(term); // step 3
+		
+		while (index >= 0) { // step 4
+			frequencyCount++; // step 5			
+			doc = doc.substring(index + term.length()); // step 6			
+			index = doc.indexOf(term); // step 7
+		}
+		
+		return frequencyCount;		
+	}
+	
+	public static double termFrequency(String term, String doc) {
+		int frequencyCount = getFrequencyCount(term, doc); // step 1
+		int totalTermCount = doc.split(" ").length; // step 2
+		
+		System.out.println("\nFinding term frequency for " + term);
+		System.out.println(frequencyCount);
+		System.out.println(totalTermCount);
+		
+		return (double) frequencyCount/totalTermCount; // step 3
+	}
+	
+	public static void main(String[] args) {
+		String doc = "Every time there is a new COVID wave, a few medicines become popular. The desperation to save family members or avoid severe forms ofthe infection makes hapless people opt for the ‘promising’ drugs.Currently, people are made aware of one such drug called ‘Monoclonal Antibodies Cocktail’, which costs around ₹60,000.However, several doctors from Telangana have underscored that the antibodies cocktail, available in India,are not effective against the Omicron variant. They have also stressed that 93% to 95% of the current COVID cases are of Omicron variant.Even if it is Delta variant, the drug cocktail has to be given within seven days of onset of the infection, and it is ineffective if the patient is in a severe stage of infection. Doctors said Remdesivir is suggested for patients with Omicron, after examining infection severity, presence of co-morbidities, immunity levels, and other factors.";
+
+		System.out.println(termFrequency("infection", doc));
+		System.out.println(termFrequency("covid", doc));
+	}
+}
+

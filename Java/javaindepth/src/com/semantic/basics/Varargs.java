@@ -1,0 +1,61 @@
+/* 1.Varargs:-
+    1.Before java 5 ~ fixed # arguments
+	2.varargs ~ variable-length arguments
+	3.last parameter can take variable # arguments
+	  -> can be the only parameter.
+	  
+2.Syntax & Invocation
+    1.Syntax: three dots following parameter type
+      -> foo(boolean falg,int... items)
+    2.Invocation
+      -> Array:foo(true,new int[]{1,2,3})
+         Comma-separated arguments: foo(true, 1,2,3)
+         Omitted: foo(true)
+
+3.Varargs Restrictions		 
+  -> Must be last parameter   
+     -> foo(int... items,boolean flag) ->illegal
+  -> Only one varargs parameter
+     -> foo(boolean flag, int... v1, int... v2) -> illegal
+	 
+4.Why varargs
+   -> can't we use foo(boolean flag, int[] items) ----> ???????????????????????? below is answer
+      1.Varargs provides simpler & flexible invocation
+	    -> foo(true, 1,2,3)
+		-> foo(true) i.e., no foo(true, null) or foo(true, new int[]{})
+		-> foo(true, veryLargeArray)
+	   2.printf(String format, Object... args)
+	    -> System.out.printf("DOB: %d/%d/%d", 1, 1, 1978); //DOB: 1/1/1978
+
+5.varargs & main method
+  -> public static void main(String[] args) {}
+           or
+  -> public static void main(String... args) 
+  
+6.Varargs & Overloaded Methods
+  
+   -> Invalid overloaded example
+       -> foo(boolean flag, int... items)
+	   -> foo(boolean flag, int[] items)
+   -> Varargs method will be matched last
+ */
+ 
+ class Varargs {
+	 void updateprofile(boolean flag, int... items) {   
+		System.out.println("array varargs method:" + items);
+		System.out.println("method length:" + items.length);
+
+	}
+	void updateprofile(boolean flag, int i, int j, int k ) {
+		System.out.println("only varargs method:" + i + " " + j + "\t" + k);
+
+	}
+	public static void main(String... args) {
+		Varargs v=new Varargs();
+		//int[] items={1,2,3,4,5,6};
+	v.updateprofile(true, 1,2,3,4,5,6);
+		v.updateprofile(true, 1,2,3);
+		v.updateprofile(true, new int[] {});
+	}
+ }
+		

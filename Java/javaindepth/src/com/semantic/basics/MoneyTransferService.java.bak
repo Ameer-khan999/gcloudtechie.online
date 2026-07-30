@@ -1,0 +1,33 @@
+ class MoneyTransferService {
+
+        CurrencyConverter1 cc = new CurrencyConverter1();
+		Currency c=new Currency();
+		void method1(String country,double money) {
+			c.method1(country,money);
+		}
+	
+        double TransferedAmount(int index, double amount) {
+                return cc.TransferedAmount(index, amount);		
+        }
+	
+        double computeTransferFee(int index, double amount) {
+                double transferAmount = TransferedAmount(index, amount);
+                double transferFee = transferAmount * 0.02;
+                return transferFee;
+        }
+	
+        public static void main(String[] args) {
+                MoneyTransferService transferService = new MoneyTransferService();
+		
+                double transferAmount = transferService.TransferedAmount(0, 1000);
+                double transferFee = transferService.computeTransferFee(0, 1000);
+				
+				c.method1("Russia",50.0);
+
+				System.out.println(country  + " currency is: " + rate[i]);
+		
+                System.out.println("transferAmount: " + transferAmount);
+                System.out.println("transferFee: " + transferFee);
+        }
+
+}

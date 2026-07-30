@@ -1,0 +1,98 @@
+/* Constructors are all about constructing objects.
+-> Constructor name similar to classname.
+-> The main purpose of constructors is to initialize the object state.
+-> Constructor is a block of code similar to methods.
+-> Constructors does not have a return types but we can only use return keyword to exit from constructor.
+-> Constructor can works on varargs like methods.
+-> Constructors does not allows us to create objects references.
+
+Synatx:
+   --:> classanme(type param1,type param2) {
+	   ......
+   }
+  Example:
+      class Student {
+		  int id;
+		  Student(int newid) {
+			  id=newid;
+			  return; --> valid but return type is not valid
+		  }
+		  Student s=new Student(1000);
+		       or
+		   s.id=1000;
+		      but below is illegeal 
+		  Student s=new Student();   --> illegal
+			  
+	  }
+Default Constructor:
+   -> Default constructor does not provide any param or arguments.
+   
+Note: When we are creating methods the compiler creates a default no args constructors and that allows us to create new objects.
+     Ex1: class Student {
+		 int id;
+	 } 
+
+     above EX1 creates default like --> class Student {
+		                                int id;
+										  Student() {}     --> Defualt Constructor
+										  Student s=new Student();
+											  
+	                                    } 	 
+*/
+class Constructrs {
+	int id;
+	String name;
+	int age;
+	char gender;
+	long phone;
+	double gpa;
+	boolean international;
+	double tutionfees=12000.0;
+	double internationalfees=5000.0;
+	static int computecount;
+	//double tutionfees=tutionfees + internationalfees;
+	
+	
+	
+	
+	Constructrs(int newid,String newname,int newage,char newgender,long newphone,double newgpa,boolean isinternational) {
+		id=newid;
+		name=newname;
+		age=newage;
+		gender=newgender;
+		phone=newphone;
+		gpa=newgpa;
+		international=isinternational;
+		//compute();  // from Constructors we can also invoke methods..:)
+		computecount=computecount+1;
+		if(international) {
+			tutionfees = tutionfees + internationalfees;
+			//return; // we can and it gives only true value
+		}
+		//return; // we cannot it blocks below lines
+		System.out.println("\nID: " + id);
+		System.out.println("Name: " + name);
+		System.out.println("age: " + age);
+		System.out.println("phone: " + phone);
+		System.out.println("gpa: " + gpa);
+		//System.out.println("Degree: " + Degree);
+		System.out.println("tutionfees: " + tutionfees);
+		System.out.println("computecount: " +computecount );
+		//System.out.println("\n");
+
+	}
+	Constructrs() {} // Constructor overloading coz we have two Constructors.
+	//void compute() {
+			//}
+	public static void main(String... args) {
+		Constructrs s=new Constructrs(1000,"Ameer",23,'M',7396_712_666L,7.8,true);
+		//s.compute();
+		Constructrs s1=new Constructrs(1001,"Sameer",27,'M',9985_491_126L,6.8,true);
+		//s1.compute();
+		Constructrs s2=new Constructrs(1002,"Anita",22,'F',7396_721999L,5.8,false);
+		//s2.compute();
+	}
+
+			
+	
+}

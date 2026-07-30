@@ -1,0 +1,82 @@
+/*
+METHODS:-
+We know that object has state and behaviour, 
+1.behaviour is defined by methods and
+2.state is defined by variables 
+
+->A method is self-contained logic that can be used many times
+->can receive input and generate output
+                (input)
+		caller -------> method
+		       <--------
+			   (output)
+			 
+SYNTAX:
+  returntype methodname(type param1,type param2..)  {
+	                     --------------------------> parameters or formsal parameters
+	          -----------------------------------------> called signature
+	  ....
+	  return somevalue;
+  }
+  
+  type var=methodname(arg1,arg2..)
+                      ------------> arguments or actual parameters
+					  
+Return Type:-
+-> void 
+   1.nothing to return
+   2.optional return;as last statement
+   3.void print() {
+	   System.out.println("Hello World!");
+   }
+ -> Must be primitive,array,class,interface or void
+ ->Other than void -> must be return value
+ 
+ Benifits of Methods:-
+ 1.
+ */
+ 
+class Methods {
+	void com(int id,String name) {
+		System.out.println("Id: " + id);
+		System.out.println("Name: " + name);
+		
+	}
+	static int operations(int x,int y) {
+		return x+y; // we can only call one return statement at a time
+		//return x-y;
+		//return x*y;
+	}
+	static int avg(int x,int y) {
+		int operations=operations(x,y);
+		return operations/2;
+		
+	}
+	static boolean search(int[] list,int x) {
+		return true;
+	}
+	public static void main(String[] args) {
+		Methods m=new Methods();
+		m.com(1,"Ameer");
+		Methods m1=new Methods();
+		m1.com(2,"Ameer Khan");
+		Methods m2=new Methods();
+		m2.com(3,"Ameer Khan Pathan");
+		
+		int sum=operations(3,5);
+		int sub=operations(3,51);
+		int mul=operations(3,50);
+		System.out.println(sum);
+		System.out.println(sub);
+		System.out.println(mul);
+		int d=avg(33,5);
+		System.out.println(d);
+		
+		int[] list={1,2,3};
+		boolean s=search(list,3);
+
+		System.out.println(s);
+		
+	}
+	
+}

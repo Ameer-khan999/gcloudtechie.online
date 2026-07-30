@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Concurrency_Part1&apos; to &apos;Concurrency_Aka_Multi_Threading&apos;" description="Rename resource &apos;Concurrency_Part1&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/Concurrency_Part1" name="Concurrency_Aka_Multi_Threading" stamp="1661336314938" updateReferences="true"/>
+</session>

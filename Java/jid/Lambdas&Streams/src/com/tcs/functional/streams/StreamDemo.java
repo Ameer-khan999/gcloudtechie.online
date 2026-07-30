@@ -1,0 +1,84 @@
+package com.tcs.functional.streams;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
+
+// 1. with streams we can do complex operations on collections like filter,collect etc..
+// 2. streams are there before 8 but they are used anonymous classes as wek now they are 
+//    verbose and they not made streams appleal to use
+// 3. so lambdas,method ref and StandardFuncinterface are helping to embrace streams and 
+//    it made sense to use streams Thanks to lambdas and method ref and SFI..
+public class StreamDemo {
+		
+		static String doc1 = "One of the most common uses of streams is to represent Ameer queries over data in collections";
+		static String doc2 = "Information integration systems provide valuable services to users Ameer by integrating information from a number of autonomous";
+		static String doc3 = "Solr is the popular, blazing fast open Ameer source enterprise search platform from the Apache Lucene";
+		static String doc4 = "Java 8 goes one more step ahead and has developed a Amir streams  API which lets us think about parallelism";
+		
+		static List<String> documents = new ArrayList<>(Arrays.asList(doc1,doc2, doc3,doc4));
+	
+		
+		
+		
+		private static void declarative() {
+			System.out.println("\nDeclarative: \n");
+			/*
+			// Stream pipeline (a common structure): 
+			     (a) set-up stream source (~ tables in SQL world)
+			     (b) 0 or more intermediate operations (~ WHERE clause) -- lazy 
+			              & return Stream<T>, i.e., transforms a stream into another stream
+			     (c) terminal operation (~ column names) -- eager 
+			              & return NON-STREAM. Terminates (closes) a stream
+			*/		
+			documents.stream()
+		//	.filter(d -> d.contains("Ameer")) // Prediacte -> test()
+				.map(Indexer1::removeStopwords) // Function -> apply()
+				.forEach(System.out::println);// Consumer -> accept(),Supplier->get()
+			// Note:- forEach is eager method and filter(),map() are lazy, we assumes
+			//  filter and map runs first but in reality that is a myth forEach runs first
+			// and it is termination after that intermediate operationsliike filter etc 
+			// are run
+			
+		
+		}	
+			
+		
+		private static void print(Stream<String> stream) {
+			stream.forEach(System.out::println);
+			//stream.forEach(System.out::println); we cannot again this
+		}
+		static boolean filter(String doc, Predicate<String> filter) {
+			return filter.test(doc);
+		}
+		
+		static String transform(String doc, Function<String, String> transformer) {
+			return transformer.apply(doc);
+		}
+		
+		public static void main(String[] args) {
+			declarative();
+		}
+}
+
+class Indexer1 {
+	
+	private static List<String> stopWords = Arrays.asList("of","Ameer", "the", "a", "is", "to", "in", "and", "us");
+	
+	public static String removeStopwords(String doc) {
+		
+		StringBuilder sb = new StringBuilder();
+		for (String word : doc.split(" ")) {
+			if (!stopWords.contains(word))
+				sb.append(word).append(" ");
+		}
+		
+		return sb.toString();
+	}	
+	
+}
+
+

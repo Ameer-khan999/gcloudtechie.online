@@ -1,0 +1,23 @@
+class sol {
+	int id;
+	String name;
+	boolean inter;
+	
+	sol(int id,String name) {
+		this(id,name,false);
+	}
+	
+	sol(int id,String name,boolean inter) {
+		id=id;
+		name=name;
+		System.out.println(id);
+		System.out.println(name);
+		if(inter) {
+			System.out.println("Succeed");
+		}
+	}
+	public static void main(String...args) {
+		sol s=new sol(1,"Ameer");
+		sol s1=new sol(2,"Sameer");
+	}
+}

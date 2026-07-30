@@ -1,0 +1,74 @@
+/*
+--> String Literal VS Using new keyword.
+1.String(Via string literal)
+   --> Stored in stringpool on heap.
+   --> Literals with same content share storage.
+ 2.String(Via new)
+   --> Same as regular object.
+   --> No storage sharing.
+   
+   
+--> StringPool:
+1.Stores single copy of each string literal as string object.
+2.Only one string pool.
+3.Also called string table.
+
+--> String interning:
+1.Process of building string pool
+2.intern ~ a String pool element.
+3.Supported by Python,Ruby,C#,javaScript.
+
+--> String interning by JVM:
+1.encountering  a string literal for first time.
+2.Create new String object with given literal.
+3.Invoke intern()
+4.if(String in string pool)
+	 return existing reference
+  else
+	 add to stringpool and return reference
+
+--> Few examples:
+1.String s='hel"="lo";~interned too
+2.String s1="lo";
+3.String s2="hel"+s1;~not interned
+4.s2=s2.intern();~EXPLICIT INTERNING
+
+--> Is explicit interning useful ?
+1.Most likely not,Mostly for JVM.
+2.E.g., Natural Languiage Process(NLP) ~ needs benchmarking!!.
+ */
+
+
+import java.lang.String;
+import java.util.Scanner;
+class StringPool {
+	static void stringPool() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter s2 String value..=");
+		String s=sc.next();
+		System.out.println("\nInside StringPoll..");
+		String s1="hello!";
+		String s2="hello!";
+		String s3="hello!".intern();
+		String s4=new String("hello");
+		//String s4=new String("hello!");//this is string immutability we cannot change string object.this line gives compilation error.
+		s4=new String("hello!"); // we can change string reference.it perfectly compiles.
+		String s5="lo!";
+		final String s6="lo!";
+		
+		System.out.println("s1==s: "+(s1==s)); //false // from input s is not stores in stringpool.
+		System.out.println("s1==s2: "+(s1==s2));//true // s1 and s2 stores in stringpool with same memeory address in a heap
+		System.out.println("s1==s3: "+(s1==s3));//true // s1 in pool of heap and s3.intern stores in same pool and also creates reference beside pool of same heap.
+		System.out.println("s1==s4: "+(s1==s4));// false // s1 is in stringpool but s4 is not it has object reference beside pool in heap
+		System.out.println("s1==s4.intern(): "+(s1==s4.intern()));//true // intern method stores in stringpool and creates object reference also.
+		System.out.println("s1==hello+lo: "+(s1=="hel"+"lo")); //true // s1 is already in stringpool and hel+lo also stores in stringpool
+		System.out.println("s1==hel+s5: "+(s1=="hel"+s5)); //false // literals are executed only at compile time s5 is a variable so this is not a literal.
+		System.out.println("s1==hel+s6: "+(s1=="hel"+s6)); //true // using final compiler takes s6 bytecode's as a literal
+	}
+	
+	public static void main(String... args) {
+		stringPool();
+    }
+}
+
+ 

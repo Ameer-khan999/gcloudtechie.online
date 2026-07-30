@@ -1,0 +1,55 @@
+// Final variable ~ never changed Note: we can do classes and methods as final.
+// Implies constant
+   // ~ primitive value is constant.
+   // reference variable ~ reference is constant ~ not object content.
+// dont get default values because once we assign we can never change.
+// used as instance,local and static variables.
+
+//-------------------------------------------------------------------------------------------
+
+// 11111111111
+// Final Instance variables.
+/* 
+1.constant for life of the object.
+2.Must be declared in
+    a.Declaration
+	b.Constructor
+	c.instance initializer.
+Note:- even you never declare in method,if we fail above pattern, we may get error.
+*/
+
+public class FinalKeyword {
+	private static  int s;
+	private static  int idFinal=1000;
+	private final int id;
+	private static String name;
+	private static String gender="male";
+	
+	public String getName() {
+		return name;
+	}
+	
+	public String setName(String name) {
+		this.name=name;
+		return name;
+	}
+	public static int gets() {
+		return s;
+	}
+	
+	public FinalKeyword(String name,String gender) {
+		this.name=name;
+		this.gender=gender;
+		
+		id = idFinal++;
+		s++;
+		System.out.println("Id of" + "Is"+ id);  //instance initializer.
+	
+
+	}
+
+	
+	
+	
+	
+}

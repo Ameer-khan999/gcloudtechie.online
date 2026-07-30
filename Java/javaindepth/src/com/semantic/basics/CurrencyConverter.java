@@ -1,0 +1,28 @@
+class CurrencyConverter {
+	/*double rupee=63.32;
+	double dirham=3;
+	float real=3;
+	long chilean_peso=595;
+	short mexican_peso=18;
+	byte _yen=107;
+	int $australian=2;
+	int dollar;*/
+	
+	
+	double[] exchangeRates={63.32,3.0,3.0,595.0,18.0,107.0,2.0};
+	void printCurrencies() {
+		System.out.println("Indian rupee: " + exchangeRates[0]);
+		System.out.println("UAE dirham: " + exchangeRates[1]);
+		System.out.println("Saudi real: " + exchangeRates[2]);
+		System.out.println("Chilean_peso: " + exchangeRates[3]);
+		System.out.println("mexican_peso: " + exchangeRates[4]);
+		System.out.println("Japanese_yen: " + exchangeRates[5]);
+		System.out.println("Australian: " + exchangeRates[6]);
+		System.out.println("Length is: " + exchangeRates.length);
+	}
+	
+	public static void main(String[] args) {
+		CurrencyConverter cc=new CurrencyConverter();
+		cc.printCurrencies();
+	}
+}

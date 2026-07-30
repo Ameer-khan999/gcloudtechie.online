@@ -1,0 +1,86 @@
+/* we are using instance variables as "id" but we are intializing with localvariables as "newid".
+   this is very hard to remember we can use both instance and local as "id".In this case local variables 
+   hides or shadows the instance variables so we can get null values
+   in order to avoid we can use "this reference".
+   
+   -> In one word this reference is used to access hidden variables.
+   -> we cannot use this reference from static method
+   
+   Note:- this reference VS this statement both are not same.
+
+*/
+class Thisreference {
+	int id;
+	String name;
+	int age;
+	char gender;
+	long phone;
+	double gpa;
+	boolean international;
+	double tutionfees=12000.0;
+	double internationalfees=5000.0;
+	static int computecount;
+	
+	
+	
+	
+	Thisreference/*con1*/(int id,String name,int age,char gender,long phone,double gpa) {
+
+		this(id, name, age, gender, phone, gpa,false);  //this statement is used to invoke primary constructor
+		                                               
+
+	}
+	
+	Thisreference/*con2*/(int id,String name,int age,char gender,long phone,double gpa,boolean international) {
+		this.id=id;   //without this.id it gives null so add this.id
+		this.name=name.toUpperCase();
+		this.age=age;
+		this.gender=gender;
+		this.phone=phone;                    // This is primary constructor becauase it has print statements
+		this.gpa=gpa;
+		this.international=international;
+		
+		computecount=computecount+1;
+		if(international) {
+			tutionfees = tutionfees + internationalfees;
+	
+		}
+		if(gpa > 3.5) {
+			tutionfees=tutionfees-1000;
+		}
+
+		/*System.out.println("\nID: " + id);
+		System.out.println("Name: " + this.name);
+		System.out.println("age: " + age);
+		System.out.println("gender: " + this.gender);
+		System.out.println("phone: " + phone);
+		System.out.println("gpa: " + gpa);
+		//System.out.println("Degree: " + Degree);
+		System.out.println("tutionfees: " + tutionfees);
+		System.out.println("computecount: " +computecount );*/
+	}
+	Thisreference() {} 
+	
+	boolean updateprofile(String name) {
+		this.name=name;
+		return true;
+	}
+	public static void main(String... args) {
+		Thisreference s=new Thisreference(10001,"Ameer",23,'M',7396_712_666L,7.8,true);
+		Thisreference s1=new Thisreference(1002,"Sameer",27,'M',9985_491_126L,2.8,true);
+
+		Thisreference s2=new Thisreference(1003,"Anita",22,'F',7396_721999L,3.8);
+	
+		System.out.println("Thisreference.computecount: " +Thisreference.computecount );
+		
+		System.out.println("id of Student 1: " + s.name );
+		System.out.println("Name of Student 2: " + s1.name );
+		System.out.println("age of Student 3: " + s2.age );
+		
+		s.updateprofile("Ameer khan");
+		System.out.println("id of updated Student 1: " + s.name);
+	}
+
+			
+	
+}

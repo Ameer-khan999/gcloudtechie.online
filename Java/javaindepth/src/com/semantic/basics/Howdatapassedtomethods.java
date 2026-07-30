@@ -1,0 +1,32 @@
+/* Passing values
+   1.passs by value
+     -> Value of argument is passed to parameter
+	    1.primitive argument ~ value is primitive
+		
+   2.pass by reference
+    -> 2.object reference argument ~value is memory address
+ Primitives in memory
+ -> int id=1000;
+ ->id -><logical name,memory address,value>
+    id----->81921--->1000
+	
+ Object reference in memory
+  -> Student s=new Students();
+           85411    NULL
+		   
+	  id-->81921----85411
+   */
+class Howdatapassedtomethods {
+	static void go(int[] array) {
+		System.out.println("array[0]: " + array[0]);
+		System.out.println("array[1]: " + array[1]);
+		array[1]=22;
+	}
+	public static void main(String[] args) {
+		int[] array={1,2};
+		go(array);
+		System.out.println("array[1]: " + array[1]);
+	}
+
+
+}

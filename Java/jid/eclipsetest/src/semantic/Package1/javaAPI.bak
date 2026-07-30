@@ -1,0 +1,39 @@
+--> Java API
+1.Library of Well tested Classes.
+2.java 8 ~ 4240 Classes
+3.Developed By Experts and used by millions of programmers.
+4.part of both JDK & JRE
+
+
+--> Packages
+      1.java.lang  --> String,Class and object
+	  2.java.util  --> Arraylist,Hashmap
+	  3.java.io    --> File,BufferedReader
+	  
+--> Why Packages ?
+    1.meaningful Organization Ex:- Arranging books in the library into a sequential manner.
+	
+--> Name Scoping.
+    1.java.util.Date != java.sql.Date // both are different packages.
+
+--> provides security by restricting accessing classes and methods.
+
+--> Let us look a commonly using JAVA API IMP Packages
+
+1.java.lang ------> Fundamental Classes
+2.java.util ------> Data Structures
+3.java.io   ------> Reading & Writing
+4.java.net  ------> Networking
+5.java.sql  ------> Databases
+
+Visit -- java 8 Api for more
+
+--> 3rd party API'security
+
+
+
+
+
+
+--> Item 47: Know and use the libraries.
+

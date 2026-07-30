@@ -1,0 +1,24 @@
+public class Book {
+	public String title;
+	
+	public Book(String title) {
+		this.title=title;
+	}
+	
+	public void setTitle(String title) {
+		this.title=title;
+	}
+	
+	public Book() {}
+	
+	public String getTitle() {
+		return title;
+	}
+	public static void main(String[] args) {
+		Book book1 = new Book("Java for Beginners");
+        Book book2 = new Book("Scala for Beginners");
+        Book book3 = new Book("Effective Python");
+		
+		System.out.println(book1.title);
+	}
+}
