@@ -1,6 +1,3 @@
-# for ARM systems, set ARCH to: `arm64`, `armv6` or `armv7`
-ARCH=$(uname -m | sed 's/x86_64/amd64/' | sed 's/aarch64/arm64/')
-PLATFORM=$(uname -s)_$ARCH
-curl -sLO "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_$PLATFORM.tar.gz"
-tar -xzf eksctl_$PLATFORM.tar.gz -C /tmp && rm eksctl_$PLATFORM.tar.gz
-sudo install -m 0755 /tmp/eksctl /usr/local/bin && rm /tmp/eksctl
+curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.35.3/2026-04-08/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo cp kubectl /usr/local/bin/kubectl
